@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Our Story ♡</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #080611;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ================= BACKGROUND ================= */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 15%, #513552 0%, transparent 34%),
+    radial-gradient(circle at 10% 90%, #302456 0%, transparent 35%),
+    radial-gradient(circle at 90% 75%, #49253f 0%, transparent 35%),
+    linear-gradient(145deg, #090711, #181024 48%, #090711);
+}
+
+/* Dense stars */
+
+.stars,
+.stars::before,
+.stars::after {
+  position: absolute;
+  inset: -100%;
+  content: "";
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.stars {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.95) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,225,240,.8) 0 1px, transparent 1.5px);
+  background-size: 67px 67px, 113px 113px;
+  background-position: 10px 20px, 50px 70px;
+  opacity: .7;
+  animation: starDrift 55s linear infinite;
+}
+
+.stars::before {
+  background-image:
+    radial-gradient(circle, white 0 1.3px, transparent 1.7px),
+    radial-gradient(circle, #e9d8ff 0 .8px, transparent 1.3px);
+  background-size: 181px 181px, 43px 43px;
+  background-position: 30px 80px, 5px 12px;
+  opacity: .65;
+}
+
+.stars::after {
+  background-image:
+    radial-gradient(circle, #fff 0 .7px, transparent 1px);
+  background-size: 29px 29px;
+  opacity: .4;
+}
+
+@keyframes starDrift {
+  from {
+    transform: translate(0,0);
+  }
+  to {
+    transform: translate(80px,55px);
+  }
+}
+
+/* Big glowing nebulae */
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  pointer-events: none;
+}
+
+.nebula.one {
+  width: 55vw;
+  height: 55vw;
+  left: -20vw;
+  top: -20vw;
+  background: #b45d91;
+  opacity: .27;
+  animation: nebulaFloat 10s ease-in-out infinite alternate;
+}
+
+.nebula.two {
+  width: 50vw;
+  height: 50vw;
+  right: -20vw;
+  bottom: -20vw;
+  background: #6654c8;
+  opacity: .25;
+  animation: nebulaFloat 13s ease-in-out infinite alternate-reverse;
+}
+
+.nebula.three {
+  width: 35vw;
+  height: 35vw;
+  left: 40%;
+  top: 45%;
+  background: #d889ad;
+  opacity: .10;
+}
+
+@keyframes nebulaFloat {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(30px,-25px) scale(1.12); }
+}
+
+/* ================= DECORATIONS ================= */
+
+.decorations {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  color: white;
+  opacity: .45;
+  text-shadow: 0 0 12px rgba(255,180,215,.8);
+  animation: floatHeart linear infinite;
+}
+
+.heart:nth-child(1) {
+  left: 7%;
+  bottom: -30px;
+  font-size: 17px;
+  animation-duration: 12s;
+}
+
+.heart:nth-child(2) {
+  left: 19%;
+  bottom: -40px;
+  font-size: 11px;
+  animation-duration: 16s;
+  animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+  left: 37%;
+  bottom: -30px;
+  font-size: 20px;
+  animation-duration: 14s;
+  animation-delay: 5s;
+}
+
+.heart:nth-child(4) {
+  left: 57%;
+  bottom: -40px;
+  font-size: 12px;
+  animation-duration: 18s;
+  animation-delay: 1s;
+}
+
+.heart:nth-child(5) {
+  left: 74%;
+  bottom: -30px;
+  font-size: 18px;
+  animation-duration: 13s;
+  animation-delay: 4s;
+}
+
+.heart:nth-child(6) {
+  left: 91%;
+  bottom: -40px;
+  font-size: 13px;
+  animation-duration: 17s;
+  animation-delay: 7s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: .45;
+  }
+  80% {
+    opacity: .3;
+  }
+  100% {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+/* Little glowing crosses */
+
+.spark {
+  position: absolute;
+  color: #fff;
+  opacity: .5;
+  animation: sparkle 2.5s ease-in-out infinite alternate;
+}
+
+.s1 { top: 13%; left: 12%; }
+.s2 { top: 22%; right: 13%; animation-delay: .7s; }
+.s3 { bottom: 18%; left: 16%; animation-delay: 1.2s; }
+.s4 { bottom: 25%; right: 12%; animation-delay: 1.8s; }
+.s5 { top: 48%; left: 6%; animation-delay: .4s; }
+.s6 { top: 55%; right: 6%; animation-delay: 1.5s; }
+
+@keyframes sparkle {
+  from {
+    opacity: .15;
+    transform: scale(.7) rotate(0);
+  }
+  to {
+    opacity: .8;
+    transform: scale(1.3) rotate(25deg);
+  }
+}
+
+/* ================= SLIDES ================= */
+
+.deck {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 22px;
+
+  opacity: 0;
+  transform: scale(.96);
+
+  pointer-events: none;
+
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* ================= GLASS CARD ================= */
+
+.card {
+  position: relative;
+
+  width: min(760px, 100%);
+  min-height: 78vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 45px 28px;
+
+  border-radius: 36px;
+
+  border: 1px solid rgba(255,255,255,.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.13),
+      rgba(255,255,255,.045)
+    );
+
+  backdrop-filter: blur(17px);
+  -webkit-backdrop-filter: blur(17px);
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.5),
+    inset 0 1px rgba(255,255,255,.12);
+
+  overflow: hidden;
+}
+
+/* moving shine */
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255,255,255,.08) 50%,
+      transparent 75%
+    );
+
+  transform: translateX(-120%);
+  animation: shine 8s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+@keyframes shine {
+  50%, 100% {
+    transform: translateX(120%);
+  }
+}
+
+/* decorative corners */
+
+.card::before {
+  content: "✦                 ♡                 ✦";
+
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+/* ================= TEXT ================= */
+
+.eyebrow {
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  color: #f3c7da;
+
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-weight: normal;
+
+  font-size: clamp(48px, 11vw, 90px);
+
+  line-height: .95;
+
+  margin-bottom: 28px;
+
+  text-shadow:
+    0 5px 35px rgba(0,0,0,.55);
+}
+
+p {
+  font-family: Arial, sans-serif;
+
+  font-size: clamp(15px, 3vw, 20px);
+
+  line-height: 1.75;
+
+  max-width: 610px;
+
+  color: rgba(255,255,255,.86);
+}
+
+.highlight {
+  margin-top: 27px;
+
+  font-size: 20px;
+
+  font-style: italic;
+
+  color: white;
+
+  text-shadow: 0 0 20px rgba(255,180,210,.35);
+}
+
+.small {
+  margin-top: 25px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,.45);
+}
+
+/* ================= STORY PAGE ================= */
+
+.story {
+  font-family: Arial, sans-serif;
+
+  font-size: clamp(15px, 3vw, 19px);
+
+  line-height: 1.8;
+
+  max-width: 620px;
+
+  color: rgba(255,255,255,.88);
+}
+
+.story strong {
+  color: #ffd9e7;
+  font-weight: normal;
+}
+
+/* ================= BUNNY ================= */
+
+.bunny {
+  width: min(430px, 82vw);
+  height: min(300px, 43vh);
+
+  object-fit: cover;
+
+  border-radius: 28px;
+
+  margin-bottom: 25px;
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.55),
+    0 0 35px rgba(238,172,202,.13);
+}
+
+/* ================= NAVIGATION ================= */
+
+.arrow {
+  position: fixed;
+
+  z-index: 20;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+}
+
+.arrow.left {
+  left: 15px;
+}
+
+.arrow.right {
+  right: 15px;
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(.88);
+}
+
+.counter {
+  position: fixed;
+
+  z-index: 20;
+
+  top: 22px;
+  right: 24px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,.55);
+}
+
+.controls {
+  position: fixed;
+
+  z-index: 20;
+
+  left: 0;
+  right: 0;
+  bottom: 23px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.3);
+
+  transition: .3s;
+}
+
+.dot.active {
+  width: 28px;
+  border-radius: 20px;
+  background: white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px) {
+
+  .slide {
+    padding: 16px;
+  }
+
+  .card {
+    min-height: 80vh;
+    padding: 43px 22px;
+    border-radius: 31px;
+  }
+
+  .card::before {
+    font-size: 10px;
+  }
+
+  .story {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .bunny {
+    width: 84vw;
+    height: 235px;
+  }
+
+  .arrow {
+    width: 41px;
+    height: 41px;
+  }
+
+  .arrow.left {
+    left: 8px;
+  }
+
+  .arrow.right {
+    right: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= THE WHOLE SKY ================= -->
+
+<div class="sky">
+
+  <div class="stars"></div>
+
+  <div class="nebula one"></div>
+  <div class="nebula two"></div>
+  <div class="nebula three"></div>
+
+  <div class="decorations">
+
+    <span class="heart">♡</span>
+    <span class="heart">♡</span>
+    <span class="heart">♡</span>
+    <span class="heart">♡</span>
+    <span class="heart">♡</span>
+    <span class="heart">♡</span>
+
+    <span class="spark s1">✦</span>
+    <span class="spark s2">✧</span>
+    <span class="spark s3">✦</span>
+    <span class="spark s4">✧</span>
+    <span class="spark s5">✦</span>
+    <span class="spark s6">✧</span>
+
+  </div>
+
+</div>
+
+
+<!-- ================= SLIDES ================= -->
+
+<main class="deck">
+
+
+  <!-- SLIDE 1 -->
+
+  <section class="slide active">
+
+    <div class="card">
+
+      <div class="eyebrow">
+        a little place made just for you
+      </div>
+
+      <h1>
+        Welcome,<br>
+        gorgeous.
+      </h1>
+
+      <p>
+        Out of all the people in the world,
+        somehow our paths crossed.
+        And somehow, you became someone
+        I never want to lose.
+      </p>
+
+      <div class="highlight">
+        So... this is our little story. ♡
+      </div>
+
+      <div class="small">
+        our story · 01
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SLIDE 2 -->
+
+  <section class="slide">
+
+    <div class="card">
+
+      <div class="eyebrow">
+        where everything started
+      </div>
+
+      <h1 style="font-size:clamp(40px,8vw,72px)">
+        One random<br>
+        message.
+      </h1>
+
+      <p class="story">
+
+        I still think about how ridiculously lucky
+        that moment was.
+
+        <br><br>
+
+        Out of all the servers we could have been in,
+        all the people we could have met,
+        and all the conversations that could have
+        happened...
+
+        <br><br>
+
+        <strong>
+        I randomly found you.
+        And I actually messaged you.
+        </strong>
+
+        <br><br>
+
+        What started as two people who could barely
+        stand each other somehow turned into
+        <strong>an enemies-to-lovers story.</strong>
+
+        <br><br>
+
+        And now you're the person I can talk to
+        about literally anything.
+
+        The bets.
+        The dares.
+        The stupid conversations.
+        The serious ones.
+        The laughing until we can't breathe.
+
+        <br><br>
+
+        Somehow, we never run out of things
+        to say to each other.
+
+      </p>
+
+      <div class="highlight">
+        Maybe the best things really do happen randomly.
+      </div>
+
+      <div class="small">
+        our story · 02
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SLIDE 3 -->
+
+  <section class="slide">
+
+    <div class="card">
+
+      <div class="eyebrow">
+        and then there's you
+      </div>
+
+      <!-- YOUR REAL BUNNY PHOTO -->
+      <img
+        src="bunny.jpg"
+        class="bunny"
+        alt="The cutest bunny"
+      >
+
+      <h1 style="font-size:clamp(38px,8vw,66px)">
+        If you were a bunny...
+      </h1>
+
+      <p class="story">
+
+        You'd obviously be this one.
+
+        <br><br>
+
+        Ridiculously adorable.
+        Soft.
+        A little chaotic.
+        Completely impossible not to love.
+
+        <br><br>
+
+        The kind of bunny I'd look at once
+        and immediately think:
+
+        <strong>
+        "Yep. That's her."
+        </strong>
+
+      </p>
+
+      <div class="highlight">
+        Different life. Same you.<br>
+        I'd still find you. ♡
+      </div>
+
+      <div class="small">
+        our story · 03
+      </div>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<!-- ================= CONTROLS ================= -->
+
+<button class="arrow left" onclick="changeSlide(-1)">
+  ‹
+</button>
+
+<button class="arrow right" onclick="changeSlide(1)">
+  ›
+</button>
+
+<div class="counter">
+  <span id="counter">01</span> / 03
+</div>
+
+<div class="controls">
+
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+
+</div>
+
+
+<script>
+
+let current = 0;
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+const counter = document.getElementById("counter");
+
+
+function showSlide(index) {
+
+  if (index < 0) {
+    index = slides.length - 1;
+  }
+
+  if (index >= slides.length) {
+    index = 0;
+  }
+
+  current = index;
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle(
+      "active",
+      i === current
+    );
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle(
+      "active",
+      i === current
+    );
+  });
+
+  counter.textContent =
+    String(current + 1).padStart(2, "0");
+}
+
+
+function changeSlide(direction) {
+  showSlide(current + direction);
+}
+
+
+/* Keyboard */
+
+document.addEventListener("keydown", function(e) {
+
+  if (e.key === "ArrowRight" || e.key === " ") {
+    changeSlide(1);
+  }
+
+  if (e.key === "ArrowLeft") {
+    changeSlide(-1);
+  }
+
+});
+
+
+/* Phone swipe */
+
+let startX = 0;
+
+document.addEventListener("touchstart", function(e) {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", function(e) {
+
+  const endX = e.changedTouches[0].clientX;
+
+  const distance = endX - startX;
+
+  if (Math.abs(distance) > 50) {
+
+    if (distance < 0) {
+      changeSlide(1);
+    } else {
+      changeSlide(-1);
+    }
+
+  }
+
+});
+
+
+/* Dots */
+
+dots.forEach((dot, index) => {
+
+  dot.addEventListener("click", function() {
+    showSlide(index);
+  });
+
+});
+
+</script>
+
+</body>
+  </html>
